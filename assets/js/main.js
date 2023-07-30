@@ -147,6 +147,24 @@
 
   });
 
+    // Services isotope and filter
+    $(window).on('load', function() {
+      var servicesIsotope = $('.services-container').isotope({
+        itemSelector: '.icon-box',
+        layoutMode: 'fitRows'
+      });
+  
+      $('#services-flters li').on('click', function() {
+        $("#services-flters li").removeClass('s-filter-active');
+        $(this).addClass('s-filter-active');
+  
+        servicesIsotope.isotope({
+          filter: $(this).data('filter')
+        });
+      });
+  
+    });
+
   // Initiate venobox (lightbox feature used in portofilo)
   $(document).ready(function() {
     $('.venobox').venobox();
